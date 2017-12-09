@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.github.dcendents.android-maven'
 
 android {
     compileSdkVersion 26
@@ -16,6 +18,55 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+}
+
+group = 'com.aminiam.bottomsheet'
+version = '0.0.1'
+
+task generateSourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier 'sources'
+}
+
+task generateJavadocs(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath()
+            .join(File.pathSeparator))
+}
+
+task generateJavadocsJar(type: Jar) {
+    from generateJavadocs.destinationDir
+    classifier 'javadoc'
+}
+
+generateJavadocsJar.dependsOn generateJavadocs
+
+artifacts {
+    archives generateJavadocsJar
+    archives generateSourcesJar
+}
+
+bintray {
+    user = 'hosseinamiinii'
+    key = '9375f6367a55aeafdc33559f3443fcbbf08e24d6'
+    pkg {
+
+        repo = 'lib'
+        name = 'BottomSheet'
+        userOrg = 'zarinpali'
+
+        version {
+            name = '0.0.1'
+            desc = 'Zarinpal Custom BottomSheet'
+            released = new Date()
+            vcsTag = '0.0.1'
+        }
+
+        licenses = ['Apache-2.0']
+        vcsUrl = 'https://github.com/hossein-amini/bottom-sheet'
+        websiteUrl = 'https://www.zarinpal.com/'
+    }
+    configurations = ['archives']
 }
 
 dependencies {
