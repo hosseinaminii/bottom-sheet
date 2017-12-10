@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 
 /**
@@ -37,4 +38,7 @@ public abstract class BottomSheetModal extends BottomSheetDialogFragment {
         return -1;
     }
 
+    public void show(FragmentManager manager) {
+        super.show(manager, getClass().getName());
+    }
 }

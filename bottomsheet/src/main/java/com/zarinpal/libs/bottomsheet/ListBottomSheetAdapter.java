@@ -17,12 +17,11 @@ class ListBottomSheetAdapter<DataSetType> extends RecyclerView.Adapter<RecyclerV
 
     private ListBottomSheetModal               listBottomSheetModal;
     private OnListBottomSheetItemClickListener listener;
+    private ArrayList<DataSetType>             items;
 
-    public ListBottomSheetAdapter(ListBottomSheetModal listBotoomSheetModal) {
-        this.listBottomSheetModal = listBotoomSheetModal;
+    public ListBottomSheetAdapter(ListBottomSheetModal listBottomSheetModal) {
+        this.listBottomSheetModal = listBottomSheetModal;
     }
-
-    private ArrayList<DataSetType> items;
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
