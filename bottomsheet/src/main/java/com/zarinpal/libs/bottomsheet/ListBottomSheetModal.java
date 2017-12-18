@@ -1,5 +1,6 @@
 package com.zarinpal.libs.bottomsheet;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -17,9 +18,12 @@ public abstract class ListBottomSheetModal<DataSetType> extends BottomSheetModal
     private OnListBottomSheetItemClickListener<DataSetType> listener;
     private ListBottomSheetAdapter<DataSetType>             adapter;
 
-    public ListBottomSheetModal() {
-        adapter = new ListBottomSheetAdapter<>(this);
+    public ListBottomSheetModal(FragmentManager fm) {
+        super(fm);
+        this.adapter = new ListBottomSheetAdapter<>(this);
+
     }
+
 
     public abstract RecyclerView.ViewHolder getViewHolder(View view, int viewType);
 

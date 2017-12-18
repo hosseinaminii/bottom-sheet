@@ -1,5 +1,7 @@
 package com.zarinpal.bottomsheet;
 
+import android.annotation.SuppressLint;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -16,6 +18,10 @@ import java.util.ArrayList;
 
 public class PurseBottomSheetModal extends ListBottomSheetModal<PurseModel> {
 
+    public PurseBottomSheetModal(FragmentManager fm) {
+        super(fm);
+    }
+
     @Override
     public RecyclerView.ViewHolder getViewHolder(View view, int viewType) {
         return new PurseViewHolder(view);
@@ -23,7 +29,7 @@ public class PurseBottomSheetModal extends ListBottomSheetModal<PurseModel> {
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, int viewType, PurseModel element) {
-        PurseViewHolder purseViewHolder = (PurseViewHolder)holder;
+        PurseViewHolder purseViewHolder = (PurseViewHolder) holder;
 
         purseViewHolder.txtName.setText(element.getName());
         purseViewHolder.txtBalance.setText(element.getBalance());
@@ -38,7 +44,7 @@ public class PurseBottomSheetModal extends ListBottomSheetModal<PurseModel> {
     @Override
     public ArrayList<PurseModel> getItems() {
         ArrayList<PurseModel> purses = new ArrayList<>();
-        for(int i = 0; i < 100; i++) {
+        for (int i = 0; i < 100; i++) {
             PurseModel purse = new PurseModel();
             purse.setName("Name: " + i);
             purse.setBalance("Balance: " + i);

@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 /**
@@ -15,7 +16,14 @@ import android.view.View;
 
 public abstract class BottomSheetModal extends BottomSheetDialogFragment {
 
+    private FragmentManager fragmentManager;
+
+    public BottomSheetModal(FragmentManager fm) {
+        this.fragmentManager = fm;
+    }
+
     public abstract int getLayout();
+
     public abstract void getView(View view);
 
     @SuppressLint("RestrictedApi")
@@ -26,9 +34,13 @@ public abstract class BottomSheetModal extends BottomSheetDialogFragment {
         View view = View.inflate(getContext(), getLayout(), null);
         dialog.setContentView(view);
 
-        if(getHeight() != -1) {
+        if (getHeight() != -1) {
             BottomSheetBehavior bottomSheetBehavior = BottomSheetBehavior.from((View) view.getParent());
             bottomSheetBehavior.setPeekHeight(getHeight());
+        }
+
+        if (isMakeTransparent()) {
+            ((View) view.getParent()).setBackgroundColor(ContextCompat.getColor(getContext(), android.R.color.transparent));
         }
 
         getView(view);
@@ -38,7 +50,11 @@ public abstract class BottomSheetModal extends BottomSheetDialogFragment {
         return -1;
     }
 
-    public void show(FragmentManager manager) {
-        super.show(manager, getClass().getName());
+    public boolean isMakeTransparent() {
+        return false;
+    }
+
+    public void show() {
+        super.show(this.fragmentManager, getClass().getName());
     }
 }
