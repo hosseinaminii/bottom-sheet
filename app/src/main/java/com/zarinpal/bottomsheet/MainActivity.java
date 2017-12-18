@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.zarinpal.libs.bottomsheet.BottomSheetTransparentModal;
 import com.zarinpal.libs.bottomsheet.OnListBottomSheetItemClickListener;
 
 public class MainActivity extends AppCompatActivity {
@@ -14,13 +15,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final PurseBottomSheetModal purseBottomSheetModal = new PurseBottomSheetModal();
+        final PurseBottomSheetModal purseBottomSheetModal = new PurseBottomSheetModal(getSupportFragmentManager());
 
         findViewById(R.id.btn_show).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                new BottomSheetTransparentModal(getSupportFragmentManager()).show();
+                //purseBottomSheetModal.show();
 
-               purseBottomSheetModal.show(getSupportFragmentManager());
             }
         });
 
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, element.getName(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
 
     }
 }
