@@ -24,6 +24,14 @@ class ListBottomSheetAdapter<DataSetType> extends RecyclerView.Adapter<RecyclerV
     }
 
     @Override
+    public int getItemViewType(int position) {
+        if(listBottomSheetModal.getItemViewType(position) == -1) {
+            return super.getItemViewType(position);
+        }
+        return listBottomSheetModal.getItemViewType(position);
+    }
+
+    @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(listBottomSheetModal.getItemLayout(viewType), parent, false);

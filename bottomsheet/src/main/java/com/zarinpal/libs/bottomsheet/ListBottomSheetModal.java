@@ -24,6 +24,10 @@ public abstract class ListBottomSheetModal<DataSetType> extends BottomSheetModal
 
     }
 
+    public int getItemViewType(int position) {
+        return -1;
+    }
+
 
     public abstract RecyclerView.ViewHolder getViewHolder(View view, int viewType);
 
