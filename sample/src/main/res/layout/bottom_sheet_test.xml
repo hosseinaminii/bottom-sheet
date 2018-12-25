@@ -10,7 +10,7 @@
         android:layout_height="300dp"
         android:gravity="center"
         android:padding="10dp"
-        android:shadowColor="#a8000000"
+        android:shadowColor="#2f000000"
         android:shadowDx="4"
         android:shadowDy="5"
         android:shadowRadius="10"
