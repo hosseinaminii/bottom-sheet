@@ -1,14 +1,14 @@
 package com.zarinpal.bottomsheet;
 
 import android.annotation.SuppressLint;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.view.View;
 import android.widget.TextView;
 
 import com.zarinpal.libs.bottomsheet.ListBottomSheetModal;
 
 import java.util.ArrayList;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Android BottomSheet Project at ZarinPal

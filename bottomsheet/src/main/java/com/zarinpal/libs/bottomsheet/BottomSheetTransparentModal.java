@@ -1,7 +1,7 @@
 package com.zarinpal.libs.bottomsheet;
 
 import android.annotation.SuppressLint;
-import android.support.v4.app.FragmentManager;
+import androidx.fragment.app.FragmentManager;
 import android.view.View;
 
 /**
