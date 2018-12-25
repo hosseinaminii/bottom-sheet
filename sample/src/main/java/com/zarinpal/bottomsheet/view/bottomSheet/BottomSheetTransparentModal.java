@@ -1,13 +1,18 @@
-package com.zarinpal.libs.bottomsheet;
+package com.zarinpal.bottomsheet.view.bottomSheet;
 
-import android.support.v4.app.FragmentManager;
+import android.annotation.SuppressLint;
 import android.view.View;
 
-/**
- * Created by ImanX.
- * bottom-sheet | Copyrights 2017 ZarinPal Crop.
- */
+import com.zarinpal.bottomsheet.R;
+import com.zarinpal.libs.bottomsheet.BottomSheetModal;
 
+import androidx.fragment.app.FragmentManager;
+
+/**
+ * Created by Farshid Roohi.
+ * bottom-sheet | Copyrights 12/25/18.
+ */
+@SuppressLint("ValidFragment")
 public class BottomSheetTransparentModal extends BottomSheetModal {
 
     public BottomSheetTransparentModal(FragmentManager fm) {

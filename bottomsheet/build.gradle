@@ -3,18 +3,14 @@ apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
 
 android {
-    compileSdkVersion 26
-
-
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 26
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
@@ -24,12 +20,10 @@ android {
         }
     }
 
-
-
 }
 
 group = 'com.zarinpal'
-version = '0.0.4'
+version = '0.0.5'
 
 task generateSourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
@@ -55,8 +49,8 @@ artifacts {
 }
 
 bintray {
-    user = 'hosseinamiinii'
-    key = '9375f6367a55aeafdc33559f3443fcbbf08e24d6'
+    user = 'xxxx'
+    key = 'xxxx'
     pkg {
 
         repo = 'lib'
@@ -64,10 +58,10 @@ bintray {
         userOrg = 'zarinpali'
 
         version {
-            name = '0.0.4'
+            name = '0.0.5'
             desc = 'Zarinpal Custom BottomSheet'
             released = new Date()
-            vcsTag = '0.0.4'
+            vcsTag = '0.0.5'
         }
 
         licenses = ['Apache-2.0']
@@ -80,6 +74,6 @@ bintray {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'com.android.support:appcompat-v7:26.0.0'
-    compile 'com.android.support:design:26.1.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0-alpha01'
+    implementation 'com.google.android.material:material:1.1.0-alpha02'
 }

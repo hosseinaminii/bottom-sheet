@@ -1,9 +1,12 @@
 package com.zarinpal.libs.bottomsheet;
 
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.fragment.app.FragmentManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
@@ -24,6 +27,15 @@ public abstract class ListBottomSheetModal<DataSetType> extends BottomSheetModal
 
     }
 
+    public void addItems(ArrayList<DataSetType> list) {
+        this.adapter.swapData(list);
+    }
+
+    public void addItem(DataSetType... item) {
+        this.adapter.addData(item);
+    }
+
+
     public int getItemViewType(int position) {
         return -1;
     }
@@ -36,7 +48,7 @@ public abstract class ListBottomSheetModal<DataSetType> extends BottomSheetModal
 
     public abstract int getItemLayout(int viewType);
 
-    public abstract ArrayList<DataSetType> getItems();
+//    public abstract ArrayList<DataSetType> getItems();
 
     @Override
     public int getLayout() {
@@ -45,12 +57,12 @@ public abstract class ListBottomSheetModal<DataSetType> extends BottomSheetModal
 
     @Override
     public void getView(View view) {
-        RecyclerView recyclerView = view.findViewById(R.id.bottom_sheet_recycler_view);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(),
-                LinearLayoutManager.VERTICAL, false);
+        RecyclerView        recyclerView  = view.findViewById(R.id.bottom_sheet_recycler_view);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
-        adapter.swapData(getItems());
+
+
     }
 
     public void setOnItemClickListener(OnListBottomSheetItemClickListener listener) {

@@ -1,4 +1,4 @@
-package com.zarinpal.bottomsheet;
+package com.zarinpal.bottomsheet.model;
 
 /**
  * Android BottomSheet Project at ZarinPal
