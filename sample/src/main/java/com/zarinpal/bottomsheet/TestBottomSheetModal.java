@@ -2,13 +2,13 @@ package com.zarinpal.bottomsheet;
 
 import android.annotation.SuppressLint;
 import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
 import com.zarinpal.libs.bottomsheet.ListBottomSheetModal;
 
 import java.util.ArrayList;
+import android.support.v7.widget.RecyclerView;
 
 /**
  * Android BottomSheet Project at ZarinPal
@@ -16,9 +16,10 @@ import java.util.ArrayList;
  * Copyright Hossein Amini All Rights Reserved.
  */
 
-public class PurseBottomSheetModal extends ListBottomSheetModal<PurseModel> {
+@SuppressLint("ValidFragment")
+public class TestBottomSheetModal extends ListBottomSheetModal<PurseModel> {
 
-    public PurseBottomSheetModal(FragmentManager fm) {
+    public TestBottomSheetModal(FragmentManager fm) {
         super(fm);
     }
 

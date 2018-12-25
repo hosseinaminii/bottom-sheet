@@ -1,5 +1,6 @@
 package com.zarinpal.libs.bottomsheet;
 
+import android.annotation.SuppressLint;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 
@@ -8,6 +9,7 @@ import android.view.View;
  * bottom-sheet | Copyrights 2017 ZarinPal Crop.
  */
 
+@SuppressLint("ValidFragment")
 public class BottomSheetTransparentModal extends BottomSheetModal {
 
     public BottomSheetTransparentModal(FragmentManager fm) {

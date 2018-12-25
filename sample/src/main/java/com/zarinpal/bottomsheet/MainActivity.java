@@ -15,18 +15,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final PurseBottomSheetModal purseBottomSheetModal = new PurseBottomSheetModal(getSupportFragmentManager());
+        final TestBottomSheetModal testBottomSheetModal = new TestBottomSheetModal(getSupportFragmentManager());
 
         findViewById(R.id.btn_show).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new BottomSheetTransparentModal(getSupportFragmentManager()).show();
-                //purseBottomSheetModal.show();
 
             }
         });
 
-        purseBottomSheetModal.setOnItemClickListener(new OnListBottomSheetItemClickListener<PurseModel>() {
+        testBottomSheetModal.setOnItemClickListener(new OnListBottomSheetItemClickListener<PurseModel>() {
             @Override
             public void onListBottomSheetItemClick(PurseModel element, int position, int viewType) {
                 Toast.makeText(MainActivity.this, element.getName(), Toast.LENGTH_SHORT).show();
