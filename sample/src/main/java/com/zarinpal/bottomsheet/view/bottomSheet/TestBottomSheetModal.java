@@ -1,13 +1,19 @@
-package com.zarinpal.bottomsheet;
+package com.zarinpal.bottomsheet.view.bottomSheet;
 
 import android.annotation.SuppressLint;
+
 import androidx.fragment.app.FragmentManager;
+
 import android.view.View;
 import android.widget.TextView;
 
+import com.zarinpal.bottomsheet.R;
+import com.zarinpal.bottomsheet.model.PurseModel;
 import com.zarinpal.libs.bottomsheet.ListBottomSheetModal;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -31,9 +37,7 @@ public class TestBottomSheetModal extends ListBottomSheetModal<PurseModel> {
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position, int viewType, PurseModel element) {
         PurseViewHolder purseViewHolder = (PurseViewHolder) holder;
-
-        purseViewHolder.txtName.setText(element.getName());
-        purseViewHolder.txtBalance.setText(element.getBalance());
+        purseViewHolder.txtTitle.setText(element.getName());
 
     }
 
@@ -42,29 +46,14 @@ public class TestBottomSheetModal extends ListBottomSheetModal<PurseModel> {
         return R.layout.bottome_sheet_item;
     }
 
-    @Override
-    public ArrayList<PurseModel> getItems() {
-        ArrayList<PurseModel> purses = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
-            PurseModel purse = new PurseModel();
-            purse.setName("Name: " + i);
-            purse.setBalance("Balance: " + i);
-
-            purses.add(purse);
-        }
-
-
-        return purses;
-    }
 
     class PurseViewHolder extends RecyclerView.ViewHolder {
 
-        TextView txtName, txtBalance;
+        TextView txtTitle;
 
         public PurseViewHolder(View itemView) {
             super(itemView);
-            this.txtName = itemView.findViewById(R.id.txtName);
-            this.txtBalance = itemView.findViewById(R.id.txtBalance);
+            this.txtTitle = itemView.findViewById(R.id.txt_title);
         }
     }
 }

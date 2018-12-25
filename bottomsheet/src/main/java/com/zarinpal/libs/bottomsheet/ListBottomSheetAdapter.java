@@ -1,11 +1,13 @@
 package com.zarinpal.libs.bottomsheet;
 
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Android BottomSheet Project at ZarinPal
@@ -25,7 +27,7 @@ class ListBottomSheetAdapter<DataSetType> extends RecyclerView.Adapter<RecyclerV
 
     @Override
     public int getItemViewType(int position) {
-        if(listBottomSheetModal.getItemViewType(position) == -1) {
+        if (listBottomSheetModal.getItemViewType(position) == -1) {
             return super.getItemViewType(position);
         }
         return listBottomSheetModal.getItemViewType(position);
@@ -62,6 +64,11 @@ class ListBottomSheetAdapter<DataSetType> extends RecyclerView.Adapter<RecyclerV
 
     public void swapData(ArrayList<DataSetType> items) {
         this.items = items;
+        notifyDataSetChanged();
+    }
+
+    public void addData(DataSetType... item) {
+        this.items.addAll(new ArrayList<>(Arrays.asList(item)));
         notifyDataSetChanged();
     }
 

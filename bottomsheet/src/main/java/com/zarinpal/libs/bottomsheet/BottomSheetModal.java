@@ -2,10 +2,16 @@ package com.zarinpal.libs.bottomsheet;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
+
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
+
+import androidx.annotation.DrawableRes;
+import androidx.annotation.LayoutRes;
 import androidx.fragment.app.FragmentManager;
 import androidx.core.content.ContextCompat;
+
+import android.content.Context;
 import android.view.View;
 
 /**
@@ -22,6 +28,7 @@ public abstract class BottomSheetModal extends BottomSheetDialogFragment {
         this.fragmentManager = fm;
     }
 
+    @LayoutRes
     public abstract int getLayout();
 
     public abstract void getView(View view);
